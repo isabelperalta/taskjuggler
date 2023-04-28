@@ -302,6 +302,11 @@ textreport frame "" {
     title "Resource Graph"
     center '<[report id="resourceGraph"]>'
   }
+  textreport "PlanInicial" {
+    formats html
+    title "PlanInicial Graph"
+    center '<[report id="planInicial"]>'
+  }
 }
 
 # A traditional Gantt chart with a project overview.
@@ -378,6 +383,7 @@ taskreport development "" {
   sortresources name.up
 }
 
+
 # A list of all employees with their contact details.
 resourcereport contactList "" {
   scenarios actual
@@ -396,6 +402,17 @@ resourcereport contactList "" {
 resourcereport resourceGraph "" {
   scenarios actual
   headline "Current Resource Allocation Graph"
+  columns no, name, effort, rate, weekly { ${TaskTip} }
+  loadunit shortauto
+  # We only like to show leaf tasks for leaf resources.
+  hidetask ~(isleaf() & isleaf_())
+  sorttasks plan.start.up
+}
+
+# resource is under- or over-allocated for.
+resourcereport planInicial "" {
+  scenarios plan
+  headline "PlanInicial Graph"
   columns no, name, effort, rate, weekly { ${TaskTip} }
   loadunit shortauto
   # We only like to show leaf tasks for leaf resources.
