@@ -71,7 +71,7 @@ resource dev3 "Peter Green" {
 
 resource dev4 "Isabel Peralta" {
   email "819535@unizar.es"
-  workinghours weekday 4h
+# workinghours weekday 4h
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -190,6 +190,7 @@ task WMGame "Web & Mobile Game" {
       allocate boss
       allocate dev2
       actual:effort 15d
+      minstart 2023-06-01
       journalentry 2023-04-13 "Problems with the planned dates" {
         author boss
         alert red
