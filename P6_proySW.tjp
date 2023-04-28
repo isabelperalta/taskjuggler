@@ -167,7 +167,7 @@ task WMGame "Web & Mobile Game" {
   }
   task tDesB "Despliegiue Back End" {
     purge chargeset
-    chargeset Back
+    chargeset back
     responsible dev3
     depends WMGame.tback
     task tDecN "Decision nube" {
