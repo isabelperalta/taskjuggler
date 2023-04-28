@@ -71,7 +71,7 @@ resource dev3 "Peter Green" {
 
 resource dev4 "Isabel Peralta" {
   email "819535@unizar.es"
-# workinghours weekday 4h
+  limits { dailymax 4h }
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -168,6 +168,10 @@ task WMGame "Web & Mobile Game" {
       effort 6d
       allocate dev1
       depends WMGame.twebF.tFEc
+      journalentry 2023-04-28 "Problems with the tests" {
+        author dev3
+        alert yellow
+      }
     }
   }
   task tDesB "Despliegiue Back End" {
