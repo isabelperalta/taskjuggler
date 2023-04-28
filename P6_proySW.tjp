@@ -71,7 +71,6 @@ resource dev3 "Peter Green" {
 
 resource dev4 "Isabel Peralta" {
   email "819535@unizar.es"
-  dailyworkinghours 4
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -127,20 +126,20 @@ task WMGame "Web & Mobile Game" {
   task tmobF "Mobile Front End" {
     purge chargeset
     chargeset mFront
-    responsible dev1
+    responsible dev4
     depends WMGame.tback.tBEd
     task tDes "Design" {
       effort 9d
-      allocate dev1
+      allocate dev4
     }
     task tMFEc "Mobile Front End Construction" {
       effort 15d
-      allocate dev1
+      allocate dev4
       depends WMGame.tmobF.tDes
     }
     task tMFEt "Mobile Front End Test" {
       effort 5d
-      allocate dev1
+      allocate dev4
       depends WMGame.tmobF.tMFEc
     }
   }
