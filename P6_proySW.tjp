@@ -122,20 +122,20 @@ task WMGame "Web & Mobile Game" {
   task tmobF "Mobile Front End" {
     purge chargeset
     chargeset mFront
-    responsible div1
+    responsible dev1
     depends WMGame.tback.tBEd
     task tDes "Design" {
       effort 9d
-      allocate div1
+      allocate dev1
     }
     task tMFEc "Mobile Front End Construction" {
       effort 15d
-      allocate div1
+      allocate dev1
       depends WMGame.tMobileF.tDes
     }
     task tMFEt "Mobile Front End Test" {
       effort 5d
-      allocate div1
+      allocate dev1
       depends WMGame.tmobF.tMFEc
     }
   }
